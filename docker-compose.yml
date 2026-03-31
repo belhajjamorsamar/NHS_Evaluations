@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  shopvite-faq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shopvite-faq-assistant
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=gpt-3.5-turbo
+      - OPENAI_EMBEDDING_MODEL=text-embedding-ada-002
+      - APP_NAME=ShopVite FAQ Assistant
+      - APP_VERSION=1.0.0
+      - LOG_LEVEL=INFO
+      - CHUNK_SIZE=1000
+      - CHUNK_OVERLAP=200
+      - K_RETRIEVALS=3
+      - SIMILARITY_THRESHOLD=0.5
+      - DATA_DIR=./data/documents
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - DEBUG=False
+    volumes:
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+      - ./src:/app/src
+    restart: unless-stopped
+    networks:
+      - shopvite-network
+
+networks:
+  shopvite-network:
+    driver: bridge

@@ -1,0 +1,107 @@
+MOYENS DE PAIEMENT ET INFORMATION PRODUITS - SHOPVITE
+
+1. MOYENS DE PAIEMENT ACCEPTÉS
+
+Cartes Bancaires:
+- Visa (débit, crédit, electron)
+- Mastercard (débit, crédit)
+- American Express
+- Avec ou sans 3D Secure
+- Sécurité PCI DSS niveau 1
+
+Portefeuilles Numériques:
+- PayPal (acheteur et vendeur protégés)
+- Google Pay
+- Apple Pay
+
+Virements:
+- Virement bancaire avant la livraison
+- Pour commandes supérieures à 500€
+- Délai: livraison après confirmation du virement
+
+Autres:
+- Chèque (livraison après encaissement - 10 jours)
+- Bon d'achat ShopVite
+- Cartes cadeaux
+
+2. SÉCURITÉ DES PAIEMENTS
+
+- Paiement chiffré SSL 256-bit
+- Vérification d'adresse automatique
+- Protection contre la fraude
+- Aucune donnée bancaire stockée
+- Conformité RGPD
+
+3. FACTURES
+
+- Facture envoyée immédiatement après confirmation
+- Disponible dans l'espace client
+- Peut être demandée à tout moment
+- Format PDF avec numéro TVA intra-communautaire
+
+4. PRIX ET PROMOTIONS
+
+Politique de Prix:
+- Prix TTC affichés à la commande
+- Pas de frais cachés
+- Frais de port clairs avant validation
+- TVA appliquée selon localisation client
+
+Réductions Disponibles:
+- Code promo à appliquer au panier
+- Programme de fidélité (1€ = 1 point, 100 points = 10€)
+- Réductions selon le panier (5% à partir de 50€)
+- Réductions de volume pour les professionnels
+
+5. INFORMATIONS PRODUIT
+
+Chaque produit affiche:
+- Description détaillée et spécifications techniques
+- Caractéristiques principales
+- Dimensions et poids
+- Consommation électrique (le cas échéant)
+- Photos haute résolution sous différents angles
+- Avis clients vérifiés (note 0-5 étoiles)
+- Compatibilité avec autres produits
+- Garantie applicable
+
+6. DISPONIBILITÉ PRODUITS
+
+- "En stock": Livraison sous 48h après paiement
+- "Délai spécial": Délai indiqué (1-4 semaines)
+- "Produit retiré du catalogue": Non commandable
+- Stock mis à jour en temps réel
+- Possibilité de précommande pour les produits à venir
+
+7. GARANTIE CONSTRUCTEUR
+
+Électronique Générale:
+- 2 ans de garantie légale incluse
+- Extension de garantie optionnelle (3, 5 ou 10 ans)
+- Prise en charge réparation ou remplacement
+- Contacter: guarantee@shopvite.com
+
+Produits Reconditionnés:
+- Garantie réduite 6-12 mois (selon le produit)
+- Prix réduit de 20-40%
+- Testé et certifié en bon fonctionnement
+- Emballage standard
+
+8. SERVICE CLIENT PRODUITS
+
+Email: support@shopvite.com
+Téléphone: +33 1 23 45 67 89
+Chat: disponible 24h/24 sauf dimanche
+Temps réponse: moins de 2 heures
+
+FAQ Technique: faq.shopvite.com
+Guides d'utilisation: Disponibles en PDF pour chaque produit
+Tutoriels vidéo: YouTube channel ShopVite
+
+9. COMPATIBILITÉ PRODUITS
+
+Pour les accessoires et composants:
+- Vérifiez la compatibilité avant l'achat
+- Outil de compatibilité en ligne
+- Support technique disponible
+- Retour gratuit si incompatible

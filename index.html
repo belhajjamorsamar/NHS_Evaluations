@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopVite FAQ Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #fff;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #f7f7f7;
+            border-right: 1px solid #d1d5db;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .new-chat-btn {
+            background: #10a37f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 16px;
+            transition: background 0.2s;
+        }
+
+        .new-chat-btn:hover {
+            background: #0d8c6f;
+        }
+
+        .chat-history {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .chat-item {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .chat-item:hover {
+            background: #e5e7eb;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #d1d5db;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message-group {
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .message-group.user {
+            justify-content: flex-end;
+        }
+
+        .message-group.assistant {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            word-wrap: break-word;
+        }
+
+        .message-bubble.user {
+            background: #10a37f;
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+        }
+
+        .message-bubble.assistant {
+            background: #f7f7f7;
+            color: #1f2937;
+            border-radius: 18px 18px 18px 4px;
+        }
+
+        .sources-info {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 8px;
+            padding: 8px;
+            background: #f9fafb;
+            border-radius: 6px;
+            border-left: 3px solid #10a37f;
+        }
+
+        .confidence-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .confidence-badge.high {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .confidence-badge.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .confidence-badge.low {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .input-area {
+            padding: 20px 24px;
+            border-top: 1px solid #d1d5db;
+            background: white;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .input-box {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: none;
+            max-height: 100px;
+            min-height: 48px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #10a37f;
+        }
+
+        .send-btn {
+            background: #10a37f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+            height: 48px;
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            background: #0d8c6f;
+        }
+
+        .send-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #10a37f;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                opacity: 0.5;
+                transform: translateY(0);
+            }
+            30% {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #9ca3af;
+        }
+
+        .empty-state h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #7f1d1d;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 3px solid #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                position: absolute;
+                height: 100%;
+                z-index: 10;
+            }
+
+            .message-bubble {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="new-chat-btn" onclick="newChat()">+ New Chat</button>
+            <div class="chat-history" id="chatHistory"></div>
+        </div>
+
+        <!-- Main Chat -->
+        <div class="main-content">
+            <div class="header">ShopVite FAQ Assistant</div>
+
+            <div class="chat-container" id="chatContainer">
+                <div class="empty-state">
+                    <h2>Welcome to ShopVite Assistant</h2>
+                    <p>Ask anything about our products, shipping, returns, and more!</p>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-container">
+                    <div class="input-box">
+                        <textarea
+                            id="questionInput"
+                            placeholder="Ask about returns, shipping, products..."
+                            onkeypress="handleKeyPress(event)"
+                        ></textarea>
+                        <button class="send-btn" id="sendBtn" onclick="sendQuestion()">
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+        let chatHistory = [];
+        let isLoading = false;
+
+        // Auto-resize textarea
+        const textarea = document.getElementById('questionInput');
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 100) + 'px';
+        });
+
+        async function sendQuestion() {
+            const question = document.getElementById('questionInput').value.trim();
+
+            if (!question || isLoading) return;
+
+            isLoading = true;
+            document.getElementById('sendBtn').disabled = true;
+
+            // Add user message to chat
+            appendMessage('user', question);
+            document.getElementById('questionInput').value = '';
+            textarea.style.height = '48px';
+
+            // Show loading indicator
+            showLoading();
+
+            try {
+                const response = await fetch(`${API_URL}/ask`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Remove loading indicator
+                removeLoading();
+
+                // Add assistant message
+                appendMessage('assistant', data.answer, {
+                    sources: data.sources,
+                    confidence: data.confidence,
+                    contextUsed: data.context_used
+                });
+
+                // Add to chat history
+                chatHistory.push({
+                    question: question,
+                    answer: data.answer,
+                    timestamp: new Date().toLocaleString()
+                });
+                updateChatHistory();
+
+            } catch (error) {
+                removeLoading();
+                appendMessage('error', `Error: ${error.message}`);
+            } finally {
+                isLoading = false;
+                document.getElementById('sendBtn').disabled = false;
+                textarea.focus();
+            }
+        }
+
+        function appendMessage(type, content, metadata = {}) {
+            const container = document.getElementById('chatContainer');
+
+            // Remove empty state if exists
+            const emptyState = container.querySelector('.empty-state');
+            if (emptyState) emptyState.remove();
+
+            const messageGroup = document.createElement('div');
+            messageGroup.className = `message-group ${type}`;
+
+            const bubble = document.createElement('div');
+            bubble.className = `message-bubble ${type}`;
+
+            if (type === 'error') {
+                bubble.className += ' error-message';
+                bubble.textContent = content;
+            } else {
+                bubble.innerHTML = content.replace(/\n/g, '<br>');
+            }
+
+            messageGroup.appendChild(bubble);
+
+            // Add metadata for assistant messages
+            if (type === 'assistant' && metadata.sources) {
+                const info = document.createElement('div');
+                info.className = 'sources-info';
+
+                let infoText = `<strong>Confidence:</strong> ${metadata.confidence.toUpperCase()}`;
+
+                if (metadata.contextUsed > 0 && metadata.sources.length > 0) {
+                    infoText += `<br><strong>Sources:</strong> ${metadata.sources.map(s => s.split('\\').pop()).join(', ')}`;
+                }
+
+                info.innerHTML = infoText;
+                messageGroup.appendChild(info);
+            }
+
+            container.appendChild(messageGroup);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function showLoading() {
+            const container = document.getElementById('chatContainer');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message-group assistant';
+            loadingDiv.id = 'loadingMessage';
+            loadingDiv.innerHTML = `
+                <div class="message-bubble assistant">
+                    <div class="typing-indicator">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(loadingDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function removeLoading() {
+            const loading = document.getElementById('loadingMessage');
+            if (loading) loading.remove();
+        }
+
+        function newChat() {
+            document.getElementById('chatContainer').innerHTML = `
+                <div class="empty-state">
+                    <h2>Welcome to ShopVite Assistant</h2>
+                    <p>Ask anything about our products, shipping, returns, and more!</p>
+                </div>
+            `;
+            document.getElementById('questionInput').value = '';
+            document.getElementById('questionInput').focus();
+        }
+
+        function updateChatHistory() {
+            const historyDiv = document.getElementById('chatHistory');
+            historyDiv.innerHTML = chatHistory.map((item, index) => `
+                <div class="chat-item" onclick="loadChat(${index})" title="${item.question}">
+                    ${item.question.substring(0, 30)}...
+                </div>
+            `).join('');
+        }
+
+        function loadChat(index) {
+            const item = chatHistory[index];
+            const container = document.getElementById('chatContainer');
+            container.innerHTML = '';
+            appendMessage('user', item.question);
+            appendMessage('assistant', item.answer);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendQuestion();
+            }
+        }
+
+        // Initial focus
+        document.getElementById('questionInput').focus();
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+GESTION COMPTE CLIENT ET SUPPORT - SHOPVITE
+
+1. CRÉER UN COMPTE
+
+Inscription Gratuite:
+- Email et mot de passe sécurisé requis
+- Confirmez votre adresse email
+- Profil complété avec nom et adresse
+- Aucun achat obligatoire pour avoir un compte
+
+Avantages du Compte:
+- Historique de commandes
+- Adresses de livraison sauvegardées
+- Programme de fidélité
+- Alertes sur les nouveaux produits
+- Accès aux offres exclusives
+
+2. SÉCURITÉ DU COMPTE
+
+Mot de passe:
+- Minimum 8 caractères
+- Au moins 1 majuscule, 1 minuscule, 1 chiffre
+- Changeable à tout moment
+- Réinitialisation possible par email
+
+Authentification:
+- Connexion sécurisée HTTPS
+- Vérification 2FA optionnelle
+- Logout automatique après 30 minutes d'inactivité
+- Historique de connexion visible
+
+3. DONNÉES PERSONNELLES
+
+Confidentialité:
+- Données stockées de façon sécurisée
+- Aucun partage avec tiers sans consentement
+- Conformité RGPD 100%
+- Droit d'accès, modification, suppression
+
+Suppression de Compte:
+- Demande en 1 clic depuis les paramètres
+- Données supprimées après 30 jours
+- Commandes conservées pour légalité fiscale
+- Confirmation par email requise
+
+4. PROGRAMME DE FIDÉLITÉ
+
+Fonctionnement:
+- 1€ dépensé = 1 point gagné
+- 100 points = 10€ bon d'achat
+- Points non expirés (sauf inactivité 2 ans)
+- Multiplication des points selon montant
+
+Niveaux VIP:
+- Argent: 500€ dépensés/an → 5% de réduction
+- Or: 1000€ dépensés/an → 10% de réduction
+- Platine: 2000€ dépensés/an → 15% de réduction + accès ventes privées
+
+5. COMMUNICATION ET NOTIFICATIONS
+
+Préférences:
+- Emails promotionnels: activable/désactivable
+- SMS: avec consentement explicite
+- Notifications application: personnalisables
+- Unsubscribe: 1 clic, effectif sous 48h
+
+Types de Notifications:
+- Confirmation de commande
+- Expédition et suivi
+- Offres personnalisées
+- Alertes stock (produits favoris)
+- Anniversaire (code -10%)
+
+6. CONTACT CLIENT MULTI-CANAL
+
+Email: support@shopvite.com
+- Réponse sous 24h
+- Support en français, anglais, allemand
+
+Chat en Direct:
+- Lundi-Vendredi: 8h-20h
+- Samedi-Dimanche: 10h-18h
+- Temps moyen attente: 2 minutes
+
+Téléphone: +33 1 23 45 67 89
+- Lundi-Samedi: 9h-18h
+- Dimanche: 14h-17h
+- Appel gratuit depuis France
+
+Formulaire de Contact:
+- Disponible 24h/24
+- Catégorisation automatique
+- Traitement rapide
+
+7. STATUT DES DEMANDES
+
+Suivi en Ligne:
+- Consultez vos demandes depuis le compte
+- Mises à jour en temps réel
+- Historique complet
+
+Délais de Réponse:
+- Demande urgente: sous 4 heures
+- Demande standard: sous 24 heures
+- Questions complexes: sous 48 heures
+
+8. RÉSOLUTION PROBLÈMES
+
+Processus:
+1. Description détaillée du problème
+2. Photos si applicable
+3. Numéro de commande
+4. Proposition de solution
+5. Accord du client
+6. Mise en œuvre
+
+Escalade:
+- Problème non résolu en 48h → escalade automatique
+- Manager client impliqué
+- Solution trouvée sous 72h maximum
+
+9. POLITIQUE DE RÉCLAMATION
+
+Droit de Réclamation:
+- Produit défectueux: sous 30 jours
+- Service inadéquat: dans le mois
+- Facture incorrecte: immédiatement
+
+Traitement:
+- Investigation complète
+- Compensation si légitime
+- Recours légaux possibles
+
+10. CONTACT POUR CAS SPÉCIAUX
+
+Questions Légales: legal@shopvite.com
+Problèmes de Sécurité: security@shopvite.com
+Partenariats B2B: business@shopvite.com
+Presse et Média: press@shopvite.com
